@@ -70,4 +70,3 @@ def process_res(article_li):
       articles_result.append(article_object)
   
   return articles_result
-
