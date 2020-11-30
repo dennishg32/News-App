@@ -1,5 +1,5 @@
 import urllib.request, json
-from .models import Article
+from .models import Article, News_Source
 
 # gettin api key and article base url plus source url
 api_key = None
@@ -12,6 +12,19 @@ def configure_request(app):
   base_url = app.config['ARTICLE_API_BASE_URL']
   source_url = app.config['ARTICLE_SOURCE_URL']
 
+def process_results(sources_list):
+  sources_results = []
+  for sources_item in sources_list:
+    id = sources_item.get('id')
+    name = sources_item.get('name')
+    url = sources_item.get('url')
+    category = sources_item.get('category')
+    
+    if id:
+      sources_object = News_Source(id, name, url, category)
+      sources_results.append(sources_object)
+      
+  return sources_results
 
 def get_sources(category):
   """ Function that gets the json response to our url request """
@@ -24,6 +37,6 @@ def get_sources(category):
     source_results = None
     if get_sources_response['sources']:
       source_list = get_sources_response['sources']
-      source_results = process_sources_results(source_list)
+      source_results = process_results(source_list)
   
   return source_results
