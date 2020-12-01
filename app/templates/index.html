@@ -13,7 +13,24 @@
 </head>
 
 <body>
+    <div class="section1">
+        <div>
+            <div class="headertxt">
+                <h2>WELCOME</h2>
+            </div>
+            <div class="namecompany">
+                <h1>TO News-APP</h1>
+            </div>
+            <div class="description">
+                <h6>AMAZING PEOPLE ARE MAKING TIME AND READ ARTICLES THROUGH DIFFERENT SOURCES</h6>
+            </div>
+            <div class="logo-icon">
+                <img src="static/images/mouse_click.png" alt="" />
+            </div>
+        </div>
+    </div>
     <div class="container">
+
         <div class="card row m-1">
             <h3>GENERAL NEWS</h3>
             {{macro.displayNewsList(general)}}
@@ -29,7 +46,8 @@
             {{macro.displayNewsList(entertainment)}}
         </div>
     </div>
-
+    <br>
+    <br> {% block footer %} {% include 'footer.html' %} {% endblock %}
 </body>
 
 </html>
