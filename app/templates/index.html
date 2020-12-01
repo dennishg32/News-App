@@ -1,5 +1,4 @@
-{% extends 'base.html'%} {% import 'macros.html' as macro %}
-
+{% extends 'base.html'%} {% import 'macros.html' as macro %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +12,24 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="card row m-1">
+            <h3>GENERAL NEWS</h3>
+            {{macro.displayNewsList(general)}}
+        </div>
+
+        <div class="card row m-1">
+            <h3>TECHNOLOGY NEWS</h3>
+            {{macro.displayNewsList(technology)}}
+        </div>
+
+        <div class="card row m-1">
+            <h3>ENTERTAINMENT NEWS</h3>
+            {{macro.displayNewsList(entertainment)}}
+        </div>
+    </div>
 
 </body>
 
 </html>
+{% endblock %}

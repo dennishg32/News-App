@@ -1,0 +1,24 @@
+{% macro displayNewsList(news_list) %} {% for news in news_list %}
+<div class=" card col-md-3 pt-2">
+    <a href="/news/{{news.id}}">{{news.name}}</a>
+</div>
+{% endfor %} {% endmacro %} {% macro displayArticleList(articles_list) %}
+<div class="container">
+    <h2 class="text-info mb-3">News</h2>
+    <div class="row" style="margin-left: 3cm;">
+        {% for news in articles_list %}
+        <div class="card col-md-3" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin:10px; padding: 10px;">
+            <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap" style="height:100%; width:100%;">
+            <div class="card-body">
+                <h5 class="card-title">{{news.title}}</h5>
+                <p class="card-text">{{news.description}}</p>
+                <p class="card-text"><strong>BY:</strong> {{news.author}}</p>
+                <p class="card-text"><strong>At:</strong> {{news.publishedAt}}</p>
+                <a href="{{news.url}}" class="btn btn-info">View</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
