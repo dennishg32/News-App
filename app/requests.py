@@ -44,7 +44,7 @@ def process_results(sources_list):
   return sources_results
 
 def get_articles(id):
-  get_articles_url = base_url.format(id, api_key)
+  get_articles_url = article_url.format(id, api_key)
   with urllib.request.urlopen(get_articles_url) as url:
     get_articles_data = url.read()
     get_articles_response = json.loads(get_articles_data)
@@ -62,13 +62,6 @@ def process_res(article_li):
   articles_result = []
   dictionary = {}
   for article_item in article_li:
-    # author = article_item.get('author')
-    # title = article_item.get('title')
-    # description = article_item.get('description')
-    # url = article_item.get('url')
-    # urlToImage = article_item.get('urlToImage')
-    # publishedAt = article_item.get('publishedAt')
-    # content = article_item.get('content')
     
     source_id = article_item ['source']
     dictionary['id'] = source_id['id']

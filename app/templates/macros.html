@@ -4,20 +4,23 @@
 </div>
 {% endfor %} {% endmacro %} {% macro displayArticleList(articles_list) %}
 <div class="container">
-    <h2 class="text-info mb-3">News</h2>
-    <div class="row" style="margin-left: 3cm;">
+    <center>
+        <h2>Updated News</h2>
+        <hr>
+    </center>
+    <div class="row">
         {% for news in articles_list %}
-        <div class="card col-md-3" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin:10px; padding: 10px;">
-            <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap" style="height:100%; width:100%;">
+        <div class="card justify-content text-center" style="box-shadow: 0 4px 8px 0 rgba(8, 8, 24, 0.726); margin:10px; padding: 10px;">
+            <img class="card-img-top" src="{{news.urlToImage}}" alt="Card image cap" style="height:50%; width:80%;">
             <div class="card-body">
-                <h5 class="card-title">{{news.title}}</h5>
+                <h3 class="card-title"><strong><em>{{news.title}}</em></strong></h3><br>
                 <p class="card-text">{{news.description}}</p>
-                <p class="card-text"><strong>BY:</strong> {{news.author}}</p>
-                <p class="card-text"><strong>At:</strong> {{news.publishedAt}}</p>
-                <a href="{{news.url}}" class="btn btn-info">View</a>
+                <hr>
+                <p class="card-text"><small><strong>Created by: {{news.author}} </strong> </small></p>
+                <p class="card-text"><small><strong>Date:</strong> {{news.publishedAt}}</small></p>
+                <a href="{{news.url}}" class="btn btn-dark">Visit Web</a>
             </div>
         </div>
-
         {% endfor %}
     </div>
 </div>

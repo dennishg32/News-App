@@ -9,18 +9,3 @@ body {
     padding: 0;
     margin: 0;
 }
-
-.section1 {
-    background: url(../static/images/landing.jpg) no-repeat;
-    background-size: cover;
-    display: flex;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.section1>div {
-    justify-content: center;
-    text-align: center;
-}
